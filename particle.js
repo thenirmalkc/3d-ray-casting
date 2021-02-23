@@ -68,6 +68,9 @@ class Particle {
                     r = Math.floor(y / rRes) - 1;
                     c = Math.floor(x / cRes);
 
+                    if(c < 0 || c >= board.col)
+                        break;
+
                     if(board.grid[r * board.col + c] == 1) {
                         minDist = dY / Math.sin(rad);
                         clr = 140 - minDist;
@@ -84,6 +87,9 @@ class Particle {
                     y = this.pos.y + dY;
                     r = Math.floor(y / rRes);
                     c = Math.floor(x / cRes);
+
+                    if(c < 0 || c >= board.col)
+                        break;
 
                     if(board.grid[r * board.col + c] == 1) {
                         minDist = dY / Math.sin(rad);
@@ -103,6 +109,9 @@ class Particle {
                     tempY = this.pos.y + dY;
                     r = Math.floor(tempY / rRes);
                     c = Math.floor(tempX / cRes);
+
+                    if(r < 0 || r >= board.row)
+                        break;
 
                     if(board.grid[r * board.col + c] == 1) {
                         const dist = dX / Math.cos(rad);
@@ -125,6 +134,9 @@ class Particle {
                     tempY = this.pos.y + dY;
                     r = Math.floor(tempY / rRes);
                     c = Math.floor(tempX / cRes) - 1;
+
+                    if(r < 0 || r >= board.row)
+                        break;
 
                     if(board.grid[r * board.col + c] == 1) {
                         const dist = dX / Math.cos(rad);
